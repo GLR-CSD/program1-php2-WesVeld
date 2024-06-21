@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once 'classes/Persoon.php';
 
         // Maak een nieuw Persoon object met de ingediende gegevens
-        $persoon = new Persoon(
+        $album = new Albums(
             null,
             $_POST['voornaam'],
             $_POST['achternaam'],
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         );
 
         // Voeg de persoon toe aan de database
-        $persoon->save($db);
+        $album->save($db);
 
     } else {
         // Sla de fouten en formulier waarden op in sessievariabelen
@@ -61,9 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Stuur de gebruiker terug naar de index.php
-    header("Location: index.php");
+    header("Location: album.php");
     exit;
 
 } else {
-    header("Location: index.php");
+    header("Location: album.php");
 }
